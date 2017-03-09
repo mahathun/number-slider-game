@@ -1,0 +1,17 @@
+.board{
+  display: flex;
+    flex-wrap: wrap;
+    flex-grow: 2;
+    width: 37rem;
+    justify-content: center;
+}
+
+.tic-toc{
+  display: flex;
+  justify-content: center;
+}
+
+.side-space{
+  width: 33%;
+  flex-grow: 1
+}

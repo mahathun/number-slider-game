@@ -1,0 +1,5 @@
+.cellRow{
+  /*background-color: rgb(195, 143, 161);
+  border:1px solid black;*/
+  display: flex;
+}
