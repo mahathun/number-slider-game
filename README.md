@@ -1,4 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+## Demo
+
+[https://mahathun.github.io/number-slider-game/](https://mahathun.github.io/number-slider-game/)
 
 Below you will find some information on how to perform common tasks.<br>
 
