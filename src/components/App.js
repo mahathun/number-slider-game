@@ -10,13 +10,29 @@ import * as actions from './../actions/actions'
 //components
 import Board from './Board'
 import Splash from './Splash'
+
+//material-ui
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
+import Dialog from 'material-ui/Dialog';
 
 
 class App extends Component {
   render() {
     var {gameStatus} = this.props
+    const actionButtons = [
+                      <FlatButton
+                        label="Sweet"
+                        primary={true}
+                        keyboardFocused={true}
+                        onTouchTap={()=>{
+                          this.props.dispatch(actions.reset())
+                          this.props.dispatch(actions.changeGameStatus(false))
+
+                        }}
+                      />,
+                    ];
+
     // console.log(gameStatus);
     return (
       <div className="App">
@@ -24,6 +40,16 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to Number Slider</h2>
         </div> */}
+        {
+          (this.props.gameStatus)?<Dialog
+          title="Congratulations !!! "
+          actions={actionButtons}
+          modal={true}
+          open={this.props.winningStatus}
+        >
+          Weldone, you have won this game. Play another one.( Try increasing the board size if it's too easy for ya')
+        </Dialog>:""
+        }
         <AppBar
          title="Number Slider"
          onLeftIconButtonTouchTap={()=>{
@@ -38,12 +64,10 @@ class App extends Component {
              default:
               break;
            }
-           if(gameStatus==='started'){
-           }
          }}
-         iconElementRight={<FlatButton onClick={()=>{
+         iconElementRight={(this.props.gameStatus==='started')? <FlatButton onClick={()=>{
              this.props.dispatch(actions.changeBoardSize(this.props.boardSize))
-         }} label="Re-shuffle" />}
+         }} label="Re-shuffle" />:null}
        />
         <div className="app-container">
             {
@@ -58,6 +82,7 @@ class App extends Component {
 export default connect((state)=>{
   return {
     gameStatus:state.gameStatus,
-    boardSize:state.boardSize
+    boardSize:state.boardSize,
+    winningStatus:state.winningStatus,
   }
 })(App);

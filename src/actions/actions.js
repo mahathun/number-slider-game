@@ -26,3 +26,9 @@ export var changeGameStatus = (newStatus)=>{
     newStatus
   }
 }
+
+export var reset =()=>{
+  return {
+    type:'RESET'
+  }
+}
