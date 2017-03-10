@@ -6,7 +6,8 @@
   border-radius: .5rem;
   margin: .5rem;
   flex-wrap: wrap;
-  color: #e74c3c;
+  /*color: #e74c3c;*/
+  color:black;
   font-size: 2rem;
   font-weight: bold;
   display: flex;

@@ -62,7 +62,8 @@ class Splash extends Component{
             secondary={true}
             style={styles.button}
             onClick={()=>{
-              this.props.dispatch(actions.changeGameStatus('started'))
+              this.props.dispatch(actions.changeGameStatus('started'));
+              this.props.dispatch(actions.changeBoardSize(this.props.boardSize))
             }}
           />
            <Divider />

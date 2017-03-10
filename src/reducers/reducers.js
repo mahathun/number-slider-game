@@ -1,4 +1,6 @@
 var _ = require('lodash')
+import {getPositionObject} from './../api/api'
+
 let defaultCurrentPositionState = [
   {
     currentPosition:1,
@@ -46,6 +48,11 @@ export var currentPositionsReducer = (state = defaultCurrentPositionState, actio
       obj[action.nextPosition].text = obj[action.currentPosition].text
       obj[action.currentPosition].text = "-1"
       return obj;
+    case 'CHANGE_BOARD_SIZE':
+      var obj = getPositionObject(action.value)
+
+      return obj;
+
     default:
       return state;
 

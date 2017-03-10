@@ -1,3 +1,6 @@
+var _ = require('lodash');
+var shuffle = require('shuffle-array')
+
 export var countInversions = (array)=>{
   // Note: this uses a variant of merge sort
 
@@ -48,6 +51,39 @@ export var solvablePuzzle = (array, gridWidth) =>{
   var gridWidthEven = (gridWidth%2===0) ? true:false;
   var inversionsEven = (inversions%2===0) ? true:false;
 
+  //console.log((!gridWidthEven && inversionsEven) || (gridWidthEven && inversionsEven));
   return (!gridWidthEven && inversionsEven) || (gridWidthEven && inversionsEven)
   //( (grid width odd) && (#inversions even) )  ||  ( (grid width even) && ((blank on odd row from bottom) == (#inversions even)) )
+}
+
+
+export var getPositionObject = (boardSize)=>{
+
+  var positions = [];
+
+  for(var i=1; i<boardSize*boardSize; i++){
+    positions.push(i);
+
+  }
+//  var positions = [1,2,3,4,5,6,7,8];
+
+
+  shuffle(positions);
+  var copyOfPositions = _.clone(positions);
+
+  //console.log(solvablePuzzle(copyOfPositions));
+  while(!solvablePuzzle(copyOfPositions,boardSize)){
+    shuffle(positions);
+    copyOfPositions = _.clone(positions);
+  }
+  var obj = positions.map((p,i)=>{
+    return {
+      currentPosition:i,
+      text:(p).toString()
+    }
+  });
+  obj.push({currentPosition:(boardSize*boardSize-1),
+            text:'-1'})
+
+  return obj;
 }
