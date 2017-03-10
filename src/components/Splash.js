@@ -58,7 +58,7 @@ class Splash extends Component{
       <div className="container">
         <Paper style={styles.paperStyle} zDepth={5} >
           <RaisedButton
-            label="Star the game"
+            label="Start the game"
             secondary={true}
             style={styles.button}
             onClick={()=>{
