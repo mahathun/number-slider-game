@@ -1,5 +1,6 @@
 {
   "name": "numberSlider",
+  "homepage": "https://mahathun.github.io/number-slider-game",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,12 +15,15 @@
     "shuffle-array": "^1.0.1"
   },
   "devDependencies": {
+    "gh-pages": "^0.12.0",
     "react-scripts": "0.9.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }

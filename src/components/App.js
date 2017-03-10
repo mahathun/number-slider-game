@@ -50,7 +50,7 @@ class App extends Component {
           Weldone, you have won this game. Play another one.( Try increasing the board size if it's too easy for ya')
         </Dialog>:""
         }
-        <AppBar
+        {(this.props.gameStatus !== false)? <AppBar
          title="Number Slider"
          onLeftIconButtonTouchTap={()=>{
            var {gameStatus} = this.props;
@@ -68,7 +68,7 @@ class App extends Component {
          iconElementRight={(this.props.gameStatus==='started')? <FlatButton onClick={()=>{
              this.props.dispatch(actions.changeBoardSize(this.props.boardSize))
          }} label="Re-shuffle" />:null}
-       />
+       />: null}
         <div className="app-container">
             {
               (gameStatus !== 'started')?<Splash />:<Board/>
