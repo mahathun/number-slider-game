@@ -30,10 +30,10 @@ class Cell extends Component {
     } else if(currentPositions[bottomPosition] !== undefined  && currentPositions[bottomPosition].text === '-1'){
       // console.log("move to",bottomPosition);
       dispatch(actions.moveCell(cell,bottomPosition))
-    } else if(currentPositions[nextPosition] !== undefined  && currentPositions[nextPosition].text === '-1'){
-      // console.log("move to",nextPosition);
+    } else if(currentPositions[nextPosition] !== undefined && (nextPosition%boardSize) !==0  && currentPositions[nextPosition].text === '-1'){
+      //console.log("move to",nextPosition%boardSize);
       dispatch(actions.moveCell(cell,nextPosition))
-    } else if(currentPositions[previousPosition] !== undefined && currentPositions[previousPosition].text === '-1'){
+    } else if(currentPositions[previousPosition] !== undefined && (cell%boardSize) !==0 && currentPositions[previousPosition].text === '-1'){
       dispatch(actions.moveCell(cell,previousPosition))
       // console.log("move to",previousPosition);
 

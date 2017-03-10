@@ -1,8 +1,9 @@
 import * as Redux from 'redux'
 
-import {currentPositionsReducer, boardSizeReducer, winningStatusReducer} from './../reducers/reducers.js'
+import {currentPositionsReducer, boardSizeReducer, winningStatusReducer, gameStatusReducer} from './../reducers/reducers.js'
 
 let defaultState = {
+  gameStatus: false,
   winningStatus: false,
   boardSize:3,
   currentPositions:[
@@ -47,6 +48,7 @@ let defaultState = {
 }
 
 var reducers = Redux.combineReducers({
+  gameStatus:gameStatusReducer,
   winningStatus:winningStatusReducer,
   boardSize:boardSizeReducer,
   currentPositions:currentPositionsReducer

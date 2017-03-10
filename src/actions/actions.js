@@ -12,3 +12,17 @@ export var checkWin = (newPositions)=>{
     newPositions
   }
 }
+
+export var changeBoardSize = (value)=>{
+  return {
+    type: 'CHANGE_BOARD_SIZE',
+    value
+  }
+}
+
+export var changeGameStatus = (newStatus)=>{
+  return {
+    type: 'CHANGE_GAME_STATUS',
+    newStatus
+  }
+}

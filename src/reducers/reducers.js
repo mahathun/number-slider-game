@@ -55,7 +55,7 @@ export var currentPositionsReducer = (state = defaultCurrentPositionState, actio
 export var boardSizeReducer = (state=3, action)=>{
   switch (action.type) {
     case 'CHANGE_BOARD_SIZE':
-      return state;
+      return action.value;
     default:
       return state;
   }
@@ -76,12 +76,21 @@ export var winningStatusReducer = (state=false, action)=>{
           ////console.log("index:", index, ", value:", value,", array[index+1]:", array[index+1], ",array.length:", array.length);
           return ( index >= (array.length-2) ) || array[index+1]>value
         });
-        //console.log("winning", won);
+        console.log("winning", won);
 
       }
       return won
     default:
       return state
 
+  }
+}
+
+export var gameStatusReducer = (state=false, action)=>{
+  switch (action.type) {
+    case 'CHANGE_GAME_STATUS':
+      return action.newStatus
+    default:
+      return state;
   }
 }

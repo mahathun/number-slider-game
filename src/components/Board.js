@@ -18,22 +18,24 @@ class Board extends Component {
     let chunkedArray = _.chunk(currentPositions,boardSize);
     //console.log("chunked",chunkedArray);
     return(
-    <div className="tic-toc">
-      <div className="side-space">
+    <div className="board-container">
+      <div className="space">
 
       </div>
       <div className="board">
+        <div className="top-bottom-spacer">
+
+        </div>
         {
-          // currentPositions.map((pos,i)=>{
-          //
-          //   return <Cell key={i} text={pos.text} currentPosition={pos.currentPosition} />
-          // })
           chunkedArray.map((pos,i) => {
             return <CellRow positions={pos} key={i}/>
           })
         }
+        <div className="top-bottom-spacer">
+
+        </div>
       </div>
-      <div className="side-space">
+      <div className="space">
       </div>
 
     </div>

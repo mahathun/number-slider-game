@@ -1,17 +1,22 @@
+
+.board-container{
+  /*background: skyblue;*/
+  display: flex;
+  flex:1;
+
+}
 .board{
-  display: flex;
-    flex-wrap: wrap;
-    flex-grow: 2;
-    width: 37rem;
+  flex: 1;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    /*background-color: pink;*/
+}
+.space{
+  flex: 1
 }
 
-.tic-toc{
-  display: flex;
-  justify-content: center;
-}
-
-.side-space{
-  width: 33%;
-  flex-grow: 1
+.top-bottom-spacer{
+  /*background-color: red;*/
+  flex:1;
 }
